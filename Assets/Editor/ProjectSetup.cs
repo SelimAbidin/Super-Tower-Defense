@@ -3,6 +3,7 @@ using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using SuperTowerDefense;
 
 // Rebuild the small starter scene via Tools > Super Tower Defense > Create Starter Scene.
 public static class ProjectSetup
@@ -18,6 +19,8 @@ public static class ProjectSetup
         camera.fieldOfView = 60;
         camera.transform.position = new Vector3(0, 6, -9);
         camera.transform.LookAt(Vector3.zero);
+        var bounds = new GameObject("Camera Movement Bounds", typeof(CameraMovementBounds)).GetComponent<CameraMovementBounds>();
+        cameraObject.AddComponent<CameraController>().MovementBounds = bounds;
         camera.clearFlags = CameraClearFlags.SolidColor;
         camera.backgroundColor = new Color(0.12f, 0.16f, 0.22f);
 

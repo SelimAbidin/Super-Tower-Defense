@@ -6,6 +6,8 @@ Open this repository folder in Unity Hub with the version in `ProjectSettings/Pr
 
 The cube and plane provide a simple 3D reference for future work. Recreate the scene with **Tools > Super Tower Defense > Create Starter Scene**. This replaces the current scene; save any scene work first.
 
+Drag with a mouse button or one finger to pan. Use the mouse wheel or a two-finger pinch to zoom. Move/resize **Camera Movement Bounds** to set the allowed ground-focus rectangle; tune zoom limits on **Main Camera**. See [camera controls, bounds and validation](Documentation/camera-controller.md).
+
 Validation can also run from the command line:
 
 ```sh

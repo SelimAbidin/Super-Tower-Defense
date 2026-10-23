@@ -1,0 +1,1 @@
+STD-2 camera validation passed: 51 assertions. Gesture identity/count/viewport/cancel transitions; pan and anchored perspective zoom; min/max zoom; all bounds edges, moved/resized/zero bounds; actual touch-sequence motion; desktop, phone and tablet renders. Editor synthetic input and renders only; no physical touch device testing.
