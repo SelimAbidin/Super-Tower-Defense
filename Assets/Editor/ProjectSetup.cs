@@ -17,8 +17,9 @@ public static class ProjectSetup
         var camera = cameraObject.GetComponent<Camera>();
         camera.orthographic = false;
         camera.fieldOfView = 60;
-        camera.transform.position = new Vector3(0, 6, -9);
-        camera.transform.LookAt(Vector3.zero);
+        // Keep the original ground focus and viewing distance; change only pitch.
+        camera.transform.rotation = Quaternion.Euler(55f, 0f, 0f);
+        camera.transform.position = -camera.transform.forward * new Vector3(0, 6, -9).magnitude;
         var bounds = new GameObject("Camera Movement Bounds", typeof(CameraMovementBounds)).GetComponent<CameraMovementBounds>();
         cameraObject.AddComponent<CameraController>().MovementBounds = bounds;
         camera.clearFlags = CameraClearFlags.SolidColor;
