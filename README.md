@@ -39,3 +39,7 @@ Aspect validation checks all eight cube bounds corners and captures 16:9, 19.5:9
 ![Tablet landscape editor render](Documentation/mobile-1200x900.png)
 
 See [the recorded build validation and remaining device checks](Documentation/mobile-validation.md).
+
+## Pathfinding investigation
+
+See [the proposed grid navigation architecture](Documentation/pathfinding-investigation.md) for multiple spawns/exits, dynamic tower placement, and mobile execution options.
