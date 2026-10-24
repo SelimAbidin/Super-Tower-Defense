@@ -49,3 +49,7 @@ Run **Tools > Super Tower Defense > Validate Navigation Grid** or use `-batchmod
 ## Pathfinding sandbox
 
 Open `Assets/Scenes/PathfindingSandbox.unity` for the retained main-thread BFS test scene. Use Run, Pause, Step, Reset, scenario selection and nearest/assigned/subset policies. See [controls, algorithm behavior and validation](Documentation/pathfinding-sandbox.md).
+
+## Mobile pathfinding benchmark
+
+`Assets/Scenes/PathfindingBenchmark.unity` runs a repeatable timing/allocation matrix and exports JSON. See [device run instructions and measurement limits](Documentation/pathfinding-mobile-benchmark.md). Editor smoke results are not mobile performance results.
