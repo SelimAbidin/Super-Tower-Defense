@@ -1,0 +1,11 @@
+Unity 6000.6.7f1, macOS editor, 2026-10-24
+GridValidation.Run: PASS
+PathfindingValidation.Run: PASS
+- All 512 3x3 walkability masks versus independent forward BFS
+- Nearest, assigned and subset policies, multi-goal minima and stable ties
+- Invalid/duplicate/blocked exits, invalid masks and stale fields
+- 12 scenario/policy combinations, 100 ticks each: replay, cardinal movement, allowed arrival
+PathfindingSandboxSetup.CreateAndValidate: PASS; screenshot visually inspected
+PathfindingPlayValidation.Begin: PASS; 80 ticks, five marker transforms, paused initialization and reset
+Play-mode log also contains an unrelated UnityEditor.Search.SearchDatabase indexing exception at editor startup. No pathfinding exception was logged; checks completed with exit code 0.
+No mobile timing measurements or gameplay integration claimed.

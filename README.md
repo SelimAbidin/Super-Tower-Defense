@@ -45,3 +45,7 @@ See [the recorded build validation and remaining device checks](Documentation/mo
 `SquareNavigationGrid` stores walkability and integer node IDs (`x + y * width`). Neighbors use a stable north/east/south/west order without diagonals or row wrapping. Search code can depend on `INavigationGrid` rather than Unity objects. `Revision` changes only when walkability changes.
 
 Run **Tools > Super Tower Defense > Validate Navigation Grid** or use `-batchmode -quit -executeMethod GridValidation.Run`.
+
+## Pathfinding sandbox
+
+Open `Assets/Scenes/PathfindingSandbox.unity` for the retained main-thread BFS test scene. Use Run, Pause, Step, Reset, scenario selection and nearest/assigned/subset policies. See [controls, algorithm behavior and validation](Documentation/pathfinding-sandbox.md).
