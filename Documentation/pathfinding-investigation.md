@@ -8,6 +8,26 @@ Inspected `origin/master` at `0acdb10` on 2026-10-24: Unity 6000.6.7f1, mobile s
 
 This is an architecture recommendation, not implemented or benchmarked functionality. No packages, gameplay code, or test harness are added.
 
+## Does BFS support multiple spawns and destinations?
+
+**Yes.** A reverse BFS starts at the destination(s) and calculates a route from every reachable tile toward them. Spawn points are simply tiles where enemies begin reading that shared result; they are not separate search origins. Enemies from one, two, or five spawns can therefore use the same field, as can enemies already moving elsewhere on the map.
+
+There are two different destination policies:
+
+- **Nearest permitted destination:** put all permitted exits into the initial queue at distance zero, then run one multi-source reverse BFS. Each tile receives its shortest traversable distance to any of those exits and a next step toward one of the closest exits. Five spawns and five exits still need only one shared field.
+- **Assigned destination:** build one reverse BFS field for each exit, at most five. An enemy reads the field for its assigned exit regardless of its spawn. For a permitted subset, compare the allowed per-exit distances at the enemy's tile and choose the shortest reachable one. Five spawns and five exits need at most five fields, not 25 spawn/exit searches.
+
+For example, take an open 7×5 grid, with no obstacles and only horizontal/vertical steps. Place exits A at `(0,0)` and B at `(6,4)`:
+
+| Spawn tile | Distance to A | Distance to B | With nearest-exit policy |
+| --- | --- | --- | --- |
+| S1 at `(1,1)` | 2 | 8 | Go to A |
+| S2 at `(5,3)` | 8 | 2 | Go to B |
+
+Both spawns read the same all-exits field. If both are assigned B instead, they share B's field and take 8 and 2 steps respectively; the all-exits field alone cannot enforce that assignment. Obstacles can change these distances or make an exit unreachable. An assigned exit must be reachable; a nearest/subset choice needs at least one reachable permitted exit.
+
+Adding another spawn on an existing walkable tile requires checking that tile's reachability, but does not require rebuilding an unchanged field. Changing walkability or the field's destination set does. This is shared routing data, not a separate path calculation per spawn or per enemy.
+
 ## Decide what an exit means
 
 The ticket does not say whether enemies choose exits or receive assignments. Support both policies explicitly; use **nearest allowed exit** as the initial suggested default, subject to game design confirmation. Nearest means shortest traversable route, not straight-line distance. A nearest-exit rule does not distribute enemies evenly or guarantee that all exits are used.
