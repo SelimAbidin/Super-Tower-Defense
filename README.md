@@ -39,3 +39,9 @@ Aspect validation checks all eight cube bounds corners and captures 16:9, 19.5:9
 ![Tablet landscape editor render](Documentation/mobile-1200x900.png)
 
 See [the recorded build validation and remaining device checks](Documentation/mobile-validation.md).
+
+## Navigation grid
+
+`SquareNavigationGrid` stores walkability and integer node IDs (`x + y * width`). Neighbors use a stable north/east/south/west order without diagonals or row wrapping. Search code can depend on `INavigationGrid` rather than Unity objects. `Revision` changes only when walkability changes.
+
+Run **Tools > Super Tower Defense > Validate Navigation Grid** or use `-batchmode -quit -executeMethod GridValidation.Run`.
