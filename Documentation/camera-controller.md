@@ -12,7 +12,15 @@ Pointer count/identity changes, releases/cancellations, viewport changes and foc
 
 The component uses the project's existing legacy Input backend (Active Input Handling: Input Manager). Attach it to a downward-looking perspective Camera and assign a Camera Movement Bounds component. The starter scene creation menu preserves this wiring.
 
+## Camera pitch
+
+The Main Camera uses a fixed **55° downward pitch** inspired by the Northend moodboard. Pitch is measured below horizontal: 0° is horizontal and 90° is straight down. This is a chosen starting setting, not a measured Northend specification. Yaw and roll remain 0°; perspective projection and 60° vertical FOV are unchanged. Pan and zoom retain this orientation.
+
+The scene and starter-scene generator share this pitch. The camera still focuses on the origin at its original distance of √117 (about 10.82) world units; its initial position is approximately `(0, 8.860, -6.204)`.
+
 ## Validation
+
+For the 55° pitch update, Unity 6000.6.7f1 passed all 51 existing camera-controller assertions and refreshed the camera screenshots below. Starter-scene validation and cube framing checks at 16:9, 19.5:9, and 4:3 also passed; README/mobile screenshots were refreshed. This update was checked with editor renders and synthetic input; mobile builds and physical device checks were not repeated.
 
 Run **Tools > Super Tower Defense > Validate Camera Controller**, or:
 
