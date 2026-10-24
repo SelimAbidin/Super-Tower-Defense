@@ -1,0 +1,12 @@
+Unity 6000.6.7f1 / 2026-10-24
+Android BuildPipeline: SUCCEEDED (non-development, locally debug-signed)
+package: name='com.selimabidin.pathfindingbenchmark' versionCode='1' versionName='1.0' platformBuildVersionName='16' platformBuildVersionCode='36' compileSdkVersion='36' compileSdkVersionCodename='16'
+sdkVersion:'26'
+targetSdkVersion:'36'
+application-label:'Pathfinding Benchmark'
+native-code: 'arm64-v8a'
+Contains lib/arm64-v8a/libil2cpp.so
+APK SHA256: 076d8f2400e98a8f0d0c91fe6abe47b660799bf8da53668b26ea339af1b9a0e5
+APK: Builds/Android/PathfindingBenchmark.apk (ignored by Git)
+Desktop editor smoke: 16 cases, 60 samples each, zero managed bytes in measured rebuilds; report JSON retained.
+No physical-device install, run or performance measurement; user explicitly deferred until later.
